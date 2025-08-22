@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -19,29 +19,51 @@
       overflow: hidden;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
       color: #e60073;
       text-shadow: 2px 2px 5px #ff99cc;
+      margin-bottom: 40px;
+      padding: 0 10px;
     }
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 20px;
+    .buttons-container {
       position: relative;
+      width: 100vw;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
+      padding: 15px 25px;
+      font-size: clamp(1rem, 3vw, 1.2rem);
       border: none;
       border-radius: 10px;
       cursor: pointer;
       background-color: #ff4d94;
       color: white;
       transition: all 0.3s ease;
-      position: relative;
+      min-width: 120px;
+      white-space: nowrap;
     }
     button:hover {
       background-color: #e60073;
+      transform: scale(1.05);
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+    #yesBtn {
+      /* Affediyorum butonu tamamen sabit */
+      position: static;
+      z-index: 10;
+    }
+    #noBtn {
+      /* Affetmiyorum butonu başlangıçta yanında */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(140px, -50%);
+      transition: all 0.2s ease-out;
     }
     .hearts {
       position: absolute;
@@ -65,15 +87,56 @@
     .message {
       display: none;
       margin-top: 30px;
-      font-size: 2rem;
+      font-size: clamp(1.2rem, 4vw, 2rem);
       color: #cc0066;
       font-weight: bold;
+      padding: 0 20px;
+    }
+    
+    /* Mobil responsive eklemeleri */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      h1 {
+        margin-bottom: 20px;
+      }
+      
+      .buttons-container {
+        height: 50vh;
+      }
+      
+      button {
+        padding: 12px 20px;
+        min-width: 100px;
+      }
+      
+      #noBtn {
+        transform: translate(110px, -50%);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .buttons-container {
+        height: 40vh;
+      }
+      
+      button {
+        padding: 10px 15px;
+        min-width: 90px;
+        font-size: 0.9rem;
+      }
+      
+      #noBtn {
+        transform: translate(100px, -50%);
+      }
     }
   </style>
 </head>
 <body>
   <h1>ÇAĞLA NOLUR BENİ AFFET</h1>
-  <div class="buttons">
+  <div class="buttons-container">
     <button id="yesBtn">Affediyorum</button>
     <button id="noBtn">Affetmiyorum</button>
   </div>
@@ -86,21 +149,97 @@
     const heartsContainer = document.getElementById("hearts");
     const message = document.getElementById("message");
 
-    // Move the "Affetmiyorum" button only when hovered
+    // Rastgele pozisyon üretme fonksiyonu (mobil uyumlu)
+    function getRandomPosition() {
+      const container = document.querySelector('.buttons-container');
+      const containerRect = container.getBoundingClientRect();
+      const yesRect = yesBtn.getBoundingClientRect();
+      const noRect = noBtn.getBoundingClientRect();
+      
+      // Güvenli alan sınırları (sayfa kenarlarından uzak)
+      const margin = 20;
+      const minX = margin;
+      const maxX = window.innerWidth - noRect.width - margin;
+      const minY = 100; // Başlıktan uzak
+      const maxY = window.innerHeight - noRect.height - 100; // Alt mesajdan uzak
+      
+      let attempts = 0;
+      let newX, newY;
+      
+      do {
+        newX = Math.random() * (maxX - minX) + minX;
+        newY = Math.random() * (maxY - minY) + minY;
+        attempts++;
+      } while (
+        attempts < 30 && (
+          // Affediyorum butonuna çok yakın olmasını engelle
+          Math.abs(newX - yesRect.left) < 150 ||
+          Math.abs(newY - yesRect.top) < 80
+        )
+      );
+
+      return { x: newX, y: newY };
+    }
+
+    // Mouse affetmiyorum butonuna yaklaştığında kaç
     noBtn.addEventListener("mouseenter", () => {
-      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-      noBtn.style.position = "absolute";
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
     });
 
-    // When "Affediyorum" is clicked
+    // Mouse butona yaklaştığında da kaç (daha hassas)
+    noBtn.addEventListener("mouseover", () => {
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
+    });
+
+    // Focus olduğunda da kaç (klavye ile erişimi engelle)
+    noBtn.addEventListener("focus", () => {
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
+      noBtn.blur(); // Focus'u kaldır
+    });
+
+    // Touch events for mobile
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
+    });
+
+    // Click event'i de engelle (eğer bir şekilde tıklanabilirse)
+    noBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
+    });
+
+    // "Affediyorum" butonuna tıklanınca
     yesBtn.addEventListener("click", () => {
       message.style.display = "block";
+      // Affetmiyorum butonunu GİZLEME, sadece biraz daha hızlı hareket ettir
+      
+      // Kalp yağmuru başlat
       for (let i = 0; i < 50; i++) {
-        createHeart();
+        setTimeout(() => createHeart(), i * 100);
       }
+      
+      // Affetmiyorum butonunu daha sık hareket ettir
+      const fastInterval = setInterval(() => {
+        const pos = getRandomPosition();
+        noBtn.style.left = pos.x + "px";
+        noBtn.style.top = pos.y + "px";
+      }, 1000);
+      
+      // 10 saniye sonra normal hızına dön
+      setTimeout(() => {
+        clearInterval(fastInterval);
+      }, 10000);
     });
 
     function createHeart() {
@@ -116,6 +255,30 @@
         heart.remove();
       }, 4000);
     }
+
+    // Sayfa yüklendiğinde affetmiyorum butonunu rastgele konumlandır
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const pos = getRandomPosition();
+        noBtn.style.left = pos.x + "px";
+        noBtn.style.top = pos.y + "px";
+      }, 500);
+    });
+
+    // Her 3 saniyede bir affetmiyorum butonunu hareket ettir
+    setInterval(() => {
+      // Buton her zaman görünür kalacak
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
+    }, 3000);
+    
+    // Sayfa boyutu değiştiğinde buton pozisyonunu güncelle
+    window.addEventListener('resize', () => {
+      const pos = getRandomPosition();
+      noBtn.style.left = pos.x + "px";
+      noBtn.style.top = pos.y + "px";
+    });
   </script>
 </body>
 </html>
