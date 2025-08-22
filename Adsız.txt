@@ -1,0 +1,285 @@
+
+
+3 tane kitap sorusu ve test sorusu var
+
+7 soru 
+1 sql 
+
+
+vaka calısması soru 1 iş gereksinimleri -------------------------------------
+
+Vaka çalışmasında belirtilen talepler ve problemler doğrultusunda projenin iş gereksinimleri şunlardır:
+
+Tedarik Zinciri ve Stok Yönetimini Optimize Etmek: Bölgesel ve müşteri bazında ürün satış verilerini anlık olarak takip ederek talep tahminlemesini iyileştirmek, bu sayede envanter yönetimini optimize ederek stok yetersizliği (stok-out) sorununu ortadan kaldırmak ve firma itibarını korumak.
+
+Operasyonel Verimliliği Artırmak: Tüm illerdeki depolarda bulunan çok çeşitli ürünlerin takibini, manuel ve dağınık sistemler yerine, merkezi ve otomatik bir platform üzerinden yaparak koordinasyon maliyetlerini düşürmek ve operasyonel verimliliği artırmak.
+
+Satış Performansını ve Motivasyonunu Artırmak: Manuel ve hataya açık prim hesaplama sürecini (Excel) ortadan kaldırarak; birden fazla temsilcinin rol aldığı ve il dışı satışları da kapsayan esnek kurallara sahip, otomatik bir prim sistemi kurmak. Bu sayede adil bir ücretlendirme sağlamak, hesaplama doğruluğunu garanti altına almak ve satış ekibinin motivasyonunu yükseltmek.
+
+İş Ortaklıklarını ve Satış Planlamasını Güçlendirmek: Sistemin ileri vadeli siparişleri kabul etmesini sağlayarak hem şirketin hem de çalışılan diğer firmaların daha iyi satış ve stok planlaması yapmasına olanak tanımak ve bu sayede iş ortaklıklarını güçlendirmek.
+
+Veri Odaklı Karar Alma Süreçlerini Desteklemek: Dağınık ve takibi zor olan satış, stok ve prim verilerini tek bir platformda birleştirerek, yönetimin stratejik kararlar alabilmesi için güvenilir ve bütünsel raporlar sunmak.
+
+
+soru 2 2)Bu talebin içerisinde yer alacak paydaşların listeini çıkartınız --------------------------------------------
+
+Elbette, vaka çalışmasından yola çıkarak projede yer alacak paydaşların (stakeholders) listesi aşağıda, proje üzerindeki rollerine ve etki alanlarına göre gruplandırılarak çıkarılmıştır:
+
+Proje Paydaşları Listesi
+1. İç Paydaşlar (Pak Dağıtım Firması Bünyesindekiler)
+Pak Dağıtım Firması Yönetimi (Yönetim Kurulu / Proje Sponsoru):
+
+Rolü/Etkisi: Projenin bütçesini onaylayan ve projenin sonucunda beklenen iş faydalarını (verimlilik artışı, maliyet düşüşü, artan kârlılık) takip eden en üst düzey karar vericilerdir. Projenin genel başarısından sorumludurlar.
+
+Satış Temsilcileri:
+
+Rolü/Etkisi: Sistemin birincil kullanıcılarından biridir. Yeni prim hesaplama sisteminden doğrudan etkileneceklerdir. Sistemin kullanım kolaylığı ve primlerinin doğru hesaplanması, onların iş motivasyonu için kritiktir.
+
+İl Temsilcileri / Depo Yöneticileri:
+
+Rolü/Etkisi: Mevcutta kendi depolarını manuel olarak takip eden bu grup, yeni merkezi envanter yönetimi sisteminin ana kullanıcıları olacaktır. İş akışları tamamen değişecektir.
+
+Merkez Ofis Operasyon / Lojistik Ekibi:
+
+Rolü/Etkisi: Tüm dağıtım ve stok koordinasyonunu yürüten ekiptir. Geliştirilecek ortak platformu, tüm operasyonu merkezden izlemek ve yönetmek için kullanacaklardır.
+
+Finans ve İnsan Kaynakları Departmanı:
+
+Rolü/Etkisi: Maaş ve prim ödemelerinden sorumlu departmanlardır. Otomatik ve doğru bir prim hesaplama sistemi, onların iş yükünü azaltacak ve hataları önleyecektir.
+
+Proje Geliştirme Ekibi:
+
+Rolü/Etkisi: İş Analistleri, Proje Yöneticisi, Yazılım Geliştiriciler ve Test Uzmanlarından oluşan bu ekip, projenin hayata geçirilmesinden sorumludur.
+
+2. Dış Paydaşlar (Firma Dışındakiler)
+İş Ortağı Firmalar (Tedarikçiler / Dağıtımı Yapılan Markalar):
+
+Rolü/Etkisi: Pak Dağıtım'ın ürünlerini dağıttığı diğer temizlik malzemesi firmalarıdır. Stokların doğru yönetilmesi ve ileri vadeli sipariş alınabilmesi, onların kendi üretim ve satış planlamalarını doğrudan etkiler. Projenin başarısı, iş ilişkilerinin sağlığı için önemlidir.
+
+Müşteriler (Marketler, Kurumsal Alıcılar, Bayiler):
+
+Rolü/Etkisi: Pak Dağıtım'dan ürün satın alan nihai ticari noktalardır. Projeden dolaylı olarak etkilenirler. Etkili bir stok yönetimi sayesinde aradıkları ürünleri her zaman rafta bulabilirler, bu da müşteri memnuniyetini artırır.
+
+3) Çözüm gereksinimlerini (solution requirements) listeleyiniz. (Çözüm Gereksinimi: iş gereksinimlerini karşılayacak çözümde bulunması gereken özellikleri tanımlayan gereksinimlerdir. Çözümün geliştirilmesi ve hayata geçirilmesi için gerekli detayları içerir) ---------------------------------------------------------------------
+
+Elbette, projenin çözüm gereksinimleri (solution requirements), daha önce belirlenen iş gereksinimlerini karşılamak üzere sistemin sahip olması gereken spesifik özellikleri ve yetenekleri tanımlar.
+
+Bu gereksinimler, Fonksiyonel ve Fonksiyonel Olmayan olarak iki ana başlıkta incelenebilir:
+
+A. Fonksiyonel Gereksinimler (Functional Requirements)
+Bunlar, sistemin kullanıcılar için "ne yapması gerektiğini" tanımlayan özelliklerdir.
+
+Envanter ve Satış Yönetimi
+Satış Kaydı: Sistem, satış temsilcilerinin müşteri, satılan ürün(ler) ve adet bilgisiyle birlikte her bir satış işlemini mobil veya web arayüzü üzerinden kolayca kaydedebilmesine olanak tanımalıdır.
+
+Gerçek Zamanlı Stok Takibi: Sistem, tüm il depolarındaki ve merkez depodaki her bir ürünün stok seviyesini gerçek zamanlı olarak takip etmelidir. Yapılan her satış sonrası stoklar otomatik olarak güncellenmelidir.
+
+Merkezi Veritabanı: Tüm satış ve stok verileri, bütün paydaşların erişebileceği merkezi bir veritabanında saklanmalıdır.
+
+Düşük Stok Uyarıları: Herhangi bir ürünün stok seviyesi, önceden tanımlanmış kritik bir eşiğin altına düştüğünde ilgili depo yöneticisine veya merkez ofise otomatik uyarı (e-posta, bildirim vb.) göndermelidir.
+
+İleri Vadeli Sipariş Yönetimi: Sistem, kullanıcıların gelecekteki bir tarih için sipariş oluşturmasına ve bu siparişlerin durumunu (beklemede, hazırlanıyor vb.) takip etmesine imkan tanımalıdır.
+
+Prim Hesaplama Modülü
+Otomatik Prim Hesaplama: Sistem, kaydedilen satış verilerine dayanarak satış temsilcilerinin primlerini otomatik olarak hesaplamalıdır.
+
+Esnek Kural Motoru: Sistem, bir yöneticinin prim kurallarını (örneğin; ürün bazlı prim oranları, ciro hedefleri vb.) tanımlayabileceği ve güncelleyebileceği esnek bir kural motoruna sahip olmalıdır.
+
+Çoklu ve Çapraz Satış Desteği: Prim modülü, bir satışa birden fazla temsilcinin dahil olduğu veya temsilcinin kendi bölgesi dışındaki komşu illerde yaptığı satışları tanıyarak puan veya prim atayabilen kuralları desteklemelidir.
+
+Prim Görüntüleme Ekranı: Her satış temsilcisi, kendi kişisel panelinden yaptığı satışları, performansını ve hak ettiği prim miktarını anlık olarak görüntüleyebilmelidir.
+
+Raporlama ve Analiz
+Yönetim Paneli (Dashboard): Sistem, yöneticilerin temel performans göstergelerini (toplam satış, en çok satan ürünler, bölgesel performans vb.) bir bakışta görebileceği görsel bir yönetim paneli sunmalıdır.
+
+Detaylı Raporlama: Sistem, kullanıcıların satış, stok ve prim verilerini; tarih aralığı, bölge, müşteri veya ürün bazında filtreleyerek detaylı raporlar almasına ve bu raporları Excel, PDF gibi formatlarda dışa aktarmasına olanak tanımalıdır.
+
+B. Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
+Bunlar, sistemin "nasıl çalışması gerektiğini" tanımlayan kalite özellikleridir.
+
+Kullanılabilirlik (Usability): Arayüz, özellikle sahada olacak satış temsilcileri için basit, anlaşılır ve mobil cihazlarla (telefon, tablet) uyumlu olmalıdır. Veri girişi hızlı ve kolay olmalıdır.
+
+Güvenlik (Security): Sistem, rol bazlı erişim kontrolüne sahip olmalıdır. Örneğin, bir satış temsilcisi sadece kendi verilerini görürken, bir yönetici kendi ekibinin verilerini, bir sistem yöneticisi ise tüm verileri görebilmelidir.
+
+Performans (Performance): Sistem, yüzlerce temsilcinin aynı anda veri girdiği ve rapor aldığı durumlarda bile hızlı yanıt vermelidir. Raporların oluşturulması saniyeler içinde tamamlanmalıdır.
+
+Güvenilirlik (Reliability): Sistem, özellikle mesai saatleri içerisinde kesintisiz olarak %99.9 oranında erişilebilir olmalıdır. Veri kaybı yaşanmamalıdır.
+
+4 RACI METRISI HAZIRLAYIN 
+
+5 5 ADET TEST CASE HAZIRLAYIN 
+
+
+Elbette. Vaka çalışmasındaki gereksinimlere dayanarak, sistemin kritik fonksiyonlarını doğrulamak amacıyla hazırlanmış en az 5 adet detaylı test senaryosu (test case) aşağıda sunulmuştur.
+
+Bu test senaryoları, hem "mutlu yol" (happy path) senaryolarını hem de önemli iş kurallarını ve güvenlik unsurlarını kapsamaktadır.
+
+Test Senaryoları
+Test Senaryosu 1: Çoklu Temsilcili Satışta Primin Doğru Hesaplanması
+Test ID: TC-PRIM-001
+
+Test Adı: İki satış temsilcisinin dahil olduğu bir satışta primin doğru şekilde paylaştırılması.
+
+Ön Koşullar:
+
+Sistemde "Temsilci A" ve "Temsilci B" adında iki farklı kullanıcı tanımlı olmalıdır.
+
+"Ürün X" için prim oranı %5 olarak belirlenmiş olmalıdır.
+
+Prim kurallarında, çoklu temsilcili satışlarda primin temsilci sayısına eşit bölüneceği tanımlı olmalıdır.
+
+Test Adımları:
+
+Sisteme yönetici veya satış yetkilisi olarak giriş yapın.
+
+Yeni bir satış kaydı oluşturun. Müşteri "ABC Market", Ürün "Ürün X", Adet "10", Birim Fiyat "1.000 TL" olarak girin (Toplam Ciro: 10.000 TL).
+
+Bu satış işlemi için hem "Temsilci A" hem de "Temsilci B"yi sorumlu olarak atayın.
+
+Satışı kaydedin.
+
+Prim raporlama ekranına gidin ve ilgili dönem için prim hesaplamasını çalıştırın.
+
+Beklenen Sonuç:
+
+Toplam prim tutarının (10.000 * %5) = 500 TL olarak hesaplanması gerekir.
+
+Prim raporunda "Temsilci A" için 250 TL, "Temsilci B" için 250 TL prim yansıtılmalıdır.
+
+Test Senaryosu 2: Başarılı Satış Sonrası Stok Seviyesinin Güncellenmesi
+Test ID: TC-STOK-001
+
+Test Adı: Gerçekleşen bir satış sonrası ilgili ürünün depo stoğunun anlık olarak doğru düşmesi.
+
+Ön Koşullar:
+
+Sistemde "Ankara Depo"da "Ürün Y" stoğu 100 adet olarak görünmelidir.
+
+Satış Temsilcisi olarak sisteme giriş yapılmış olmalıdır.
+
+Test Adımları:
+
+"Ankara Depo" stoğundan "Ürün Y" için 15 adetlik bir satış siparişi oluşturun.
+
+Siparişi onaylayıp satışı tamamlayın.
+
+Envanter yönetimi modülüne gidin.
+
+"Ankara Depo"daki "Ürün Y" için güncel stok miktarını kontrol edin.
+
+Beklenen Sonuç:
+
+"Ürün Y" için "Ankara Depo"daki yeni stok seviyesinin 85 (100 - 15) olarak görüntülenmesi gerekir.
+
+Test Senaryosu 3: İleri Vadeli Siparişin Stokları Etkilememesi
+Test ID: TC-SIPA-001
+
+Test Adı: İleri vadeli bir sipariş oluşturulduğunda, siparişin kaydedilmesi ancak teslimat tarihine kadar stoğun düşmemesi.
+
+Ön Koşullar:
+
+"Bursa Depo"da "Ürün Z" stoğu 50 adet olarak görünmelidir.
+
+Test Adımları:
+
+Sisteme giriş yapın ve yeni bir sipariş ekranı açın.
+
+"Bursa Depo"dan 10 adet "Ürün Z" siparişi girin.
+
+Siparişin teslimat tarihini bugünden 1 ay sonrası olarak ayarlayın.
+
+Siparişi kaydedin.
+
+Sipariş listesinde siparişin durumunu ve envanter modülünde "Ürün Z" stoğunu kontrol edin.
+
+Beklenen Sonuç:
+
+Siparişin "İleri Vadeli Beklemede" gibi bir statü ile başarıyla oluşturulması gerekir.
+
+"Bursa Depo"daki "Ürün Z" stoğunun hala 50 adet olarak görünmesi gerekir.
+
+Test Senaryosu 4: Düşük Stok Uyarısının Tetiklenmesi
+Test ID: TC-STOK-002
+
+Test Adı: Bir ürünün stoğu, belirlenen kritik seviyenin altına düştüğünde ilgili kişiye uyarı gönderilmesi.
+
+Ön Koşullar:
+
+"Adana Depo"da "Ürün K" stoğu 20 adet olmalıdır.
+
+"Ürün K" için kritik stok seviyesi 15 adet olarak ayarlanmış olmalıdır.
+
+"Adana Depo Yöneticisi"nin e-posta adresi sistemde tanımlı olmalıdır.
+
+Test Adımları:
+
+"Adana Depo"dan 6 adet "Ürün K" satışı gerçekleştirin.
+
+Satışı tamamlayın.
+
+"Adana Depo Yöneticisi"nin e-posta kutusunu kontrol edin.
+
+Beklenen Sonuç:
+
+Satış sonrası stok 14 adede (20 - 6) düşeceği ve kritik seviyenin (15) altına ineceği için "Adana Depo Yöneticisi"ne "Ürün K stoğu kritik seviyenin altına düştü" şeklinde bir e-posta uyarısı gönderilmelidir.
+
+Test Senaryosu 5: Rol Bazlı Erişim Kontrolü (Güvenlik)
+Test ID: TC-GUV-001
+
+Test Adı: Bir satış temsilcisinin başka bir satış temsilcisinin satış ve prim verilerine erişememesi.
+
+Ön Koşullar:
+
+Sistemde "Temsilci A" ve "Temsilci B" adında iki farklı kullanıcı tanımlı olmalıdır.
+
+"Temsilci A"nın sisteme kayıtlı satışları ve primleri bulunmalıdır.
+
+Test Adımları:
+
+Sisteme "Temsilci B" kullanıcısının bilgileriyle giriş yapın.
+
+Sistemde, "Temsilci A"ya ait raporları, satış listesini veya prim detaylarını görüntülemeye çalışın (örneğin URL değiştirerek veya arama yaparak).
+
+Beklenen Sonuç:
+
+Sistem, "Temsilci B"nin "Temsilci A"ya ait özel verilere erişimini engellemeli ve "Erişim Reddedildi" veya benzeri bir güvenlik mesajı göstermelidir.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Banka olarak kredi kartı satışlarımızı arttırmak istiyoruz. Kredi kartımız için başvuru sürecinin daha kolay olması gerek. Müşterimizeulaşarak reklamımızı yapmak istiyouz. Doğru kitlelere ulaşmamız gerek.
+
+
+
+Bu şekilde gelen bir talep karşısında, etkili bir analiz yapabilmek için iş analistinin sorması gereken sorulardan en az 4 tanesi listeleyiniz
+
+Harika bir senaryo. Bu tür genel bir talep, iş analistinin doğru sorularla konuyu derinleştirmesini ve projenin sınırlarını çizmesini gerektirir. Analistin amacı, varsayımları ortadan kaldırmak ve talebi ölçülebilir, somut hedeflere dönüştürmektir.
+
+İşte bu talep karşısında etkili bir analiz yapabilmek için bir iş analistinin sorması gereken en az 4 kritik soru:
+
+1. Hedef ve Başarı Metriklerinin Netleştirilmesi
+Soru: "Kredi kartı satışlarını 'arttırmak' hedefimiz tam olarak nedir? Bu artışı hangi zaman diliminde ve hangi ölçülebilir değerlerle (KPI - Temel Performans Göstergesi) başarı olarak kabul edeceğiz? Örneğin, '6 ay içinde yeni kart başvuru sayısını %20 artırmak' veya 'aktif kart başına aylık harcama ortalamasını %10 yükseltmek' gibi spesifik hedeflerimiz var mı?"
+
+Neden Önemlidir?: Bu soru, projenin en temel amacını soyut bir "isteği" olmaktan çıkarıp, herkesin üzerinde anlaştığı, ölçülebilir ve zamana bağlı (SMART) bir hedefe dönüştürür. Projenin başarısı veya başarısızlığı bu metriklere göre değerlendirilecektir.
+
+2. Mevcut Durum Analizi ve Problemin Kök Nedenleri
+Soru: "Mevcut başvuru sürecimizin 'kolay olmadığı' yönündeki düşüncenin arkasındaki veriler nelerdir? Müşteriler en çok hangi adımda (örneğin, belge yükleme, form doldurma) süreci terk ediyor? Başvuru terk etme oranımız nedir ve bu oranın en yüksek olduğu kanallar (mobil, web, şube) hangileridir?"
+
+Neden Önemlidir?: Bu soru, "süreç zor" varsayımını sorgular ve problemin kök nedenini bulmaya odaklanır. Sorunun nerede olduğunu bilmeden doğru çözümü üretmek imkansızdır. Belki de sorun formun uzunluğu değil, teknik bir hatadır. Bu soru, analiz ve çözüm çabalarını doğru noktaya yönlendirir.
+
+3. Hedef Kitlenin Tanımlanması
+Soru: "Ulaşmak istediğimiz 'doğru kitle' kimdir? Bu kitlenin demografik özellikleri (yaş, gelir, meslek), harcama alışkanlıkları ve bankamızla olan mevcut ilişkisi (örneğin, maaş müşterimiz, yatırım hesabı sahibi, daha önce hiç müşterimiz olmamış potansiyel müşteri) nedir? Hangi kitleye odaklanmanın yatırım getirisinin (ROI) en yüksek olacağını düşünüyoruz?"
+
+Neden Önemlidir?: "Herkese" reklam yapmak, kaynakların verimsiz kullanılmasına neden olur. Bu soru, pazarlama çabalarını en yüksek potansiyele sahip müşteri segmentlerine odaklamak için gereklidir. Farklı kitleler için farklı pazarlama mesajları ve başvuru süreçleri tasarlanabilir.
+
+4. Proje Kapsamı ve Kısıtların Belirlenmesi
+Soru: "Başvuru sürecini kolaylaştırma ve reklam çalışmaları kapsamında neleri değiştirebiliriz, neleri değiştiremeyiz? Örneğin, yasal düzenlemeler (KVKK, BDDK kuralları) veya mevcut teknolojik altyapımız bize ne gibi kısıtlamalar getiriyor? Bu proje için ayrılmış bir bütçe veya zaman çerçevesi var mı?"
+
+Neden Önemlidir?: Bu soru, projenin sınırlarını (kapsamını) çizer. Nelerin mümkün, nelerin imkansız olduğunu en baştan belirlemek, projenin gerçekçi hedeflerle ilerlemesini sağlar ve ileride yaşanabilecek "bunu yapamıyoruz" sürprizlerini engeller.
+
+Bonus Soru: Rekabet Analizi
+Soru: "Rakip bankaların kredi kartı başvuru süreçleri ve pazarlama stratejileri hakkında neler biliyoruz? Onları başarılı kılan veya müşterilerin onları tercih etmesini sağlayan temel özellikler nelerdir? Bizim kartımızın rekabetteki avantajları ve dezavantajları nelerdir?"
+
+Neden Önemlidir?: Pazardaki konumu anlamak, rekabet avantajı yaratacak çözümler geliştirmek için kritiktir. Başkalarının başarılarından ders çıkarmak ve hatalarından kaçınmak, projenin stratejisini güçlendirir.
+
+
+
+
