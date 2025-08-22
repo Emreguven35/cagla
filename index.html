@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Çağla Nolur Beni Affet</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #ffebf0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #e60073;
+      text-shadow: 2px 2px 5px #ff99cc;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #ff4d94;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #e60073;
+    }
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: #e60073;
+      animation: float 4s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+    .message {
+      display: none;
+      margin-top: 30px;
+      font-size: 2rem;
+      color: #cc0066;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>ÇAĞLA NOLUR BENİ AFFET</h1>
+  <div class="buttons">
+    <button id="yesBtn">Affediyorum</button>
+    <button id="noBtn">Affetmiyorum</button>
+  </div>
+  <div class="hearts" id="hearts"></div>
+  <div class="message" id="message">❤️ Seni çok seviyorum! Hadi yanıma gel ❤️</div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const heartsContainer = document.getElementById("hearts");
+    const message = document.getElementById("message");
+
+    // Move the "Affetmiyorum" button when hovered or clicked
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.position = "absolute";
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    // When "Affediyorum" is clicked
+    yesBtn.addEventListener("click", () => {
+      message.style.display = "block";
+      for (let i = 0; i < 50; i++) {
+        createHeart();
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      heart.style.fontSize = Math.random() * 30 + 20 + "px";
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
